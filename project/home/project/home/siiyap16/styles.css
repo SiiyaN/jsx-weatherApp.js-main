@@ -1,0 +1,40 @@
+.App {
+  font-family: sans-serif;
+  background: white;
+  max-width: 700px;
+  margin: 35px auto;
+  box-shadow: 0 30px 50px rgb(202, 197, 197);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.Search {
+  border: none;
+  border-radius: 7px;
+  font-size: 15px;
+  padding: 10px 25px;
+  max-width: fit-content;
+}
+
+.weatherDetails {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.temperatureValue {
+  font-size: 64px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.Units {
+  font-size: 16px;
+  color: #007bff;
+  margin-left: 5px;
+  vertical-align: super;
+}
+
+.Humidity {
+  margin-top: 55px;
+}
