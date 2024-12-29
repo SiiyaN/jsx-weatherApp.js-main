@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
+import Footer from "./Footer";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -35,9 +36,9 @@ export default function App() {
               {icon && <img src={icon} alt={description} />}
             </li>
           </ul>
-          <Footer />
         </div>
       )}
+      <Footer />
     </div>
   );
 }
