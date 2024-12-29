@@ -35,6 +35,7 @@ export default function App() {
               {icon && <img src={icon} alt={description} />}
             </li>
           </ul>
+          <Footer />
         </div>
       )}
     </div>
