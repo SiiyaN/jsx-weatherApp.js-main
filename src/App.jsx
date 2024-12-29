@@ -20,25 +20,27 @@ export default function App() {
   };
 
   return (
-    <div>
-      <h1>Weather App</h1>
-      <Search updateWeather={updateWeatherData} />
-      {temperature && (
-        <div>
-          <h2>Weather Details</h2>
-          <ul>
-            <li>Temperature: {temperature}°C</li>
-            <li>Humidity: {humidity}%</li>
-            <li>Wind: {wind} km/h</li>
-            <li>
-              Description: {description}
-              <br />
-              {icon && <img src={icon} alt={description} />}
-            </li>
-          </ul>
-        </div>
-      )}
-      <Footer />
+    <div className="App">
+      <div className="container">
+        <h1>Weather App</h1>
+        <Search updateWeather={updateWeatherData} />
+        {temperature && (
+          <div>
+            <h2>Weather Details</h2>
+            <ul>
+              <li>Temperature: {temperature}°C</li>
+              <li>Humidity: {humidity}%</li>
+              <li>Wind: {wind} km/h</li>
+              <li>
+                Description: {description}
+                <br />
+                {icon && <img src={icon} alt={description} />}
+              </li>
+            </ul>
+          </div>
+        )}
+        <Footer />
+      </div>
     </div>
   );
 }
