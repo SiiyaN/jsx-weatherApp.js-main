@@ -6,32 +6,42 @@ export default function Search({ updateWeather }) {
 
   let searchWeather = async (event) => {
     event.preventDefault();
-    let apiKey = "f063aad8tb9d2a804775off7e6bf14bb";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}`;
+    let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}`;
 
     let response = await axios.get(apiUrl);
-    let weather = response.data;
 
     updateWeather({
       city: cityInput,
-      temperature: weather.temperature.current,
-      description: weather.condition.description,
-      humidity: weather.temperature.humidity,
-      wind: weather.wind.speed,
-      icon: weather.condition.icon_url,
+      temperature: Math.round(response.data.main.temp - 273.15),
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      icon: response.data.weather[0].icon,
     });
   };
 
   return (
-    <div>
+    <div className="Weather">
       <form onSubmit={searchWeather}>
-        <input
-          type="text"
-          placeholder="Enter city"
-          value={cityInput}
-          onChange={(e) => setCityInput(e.target.value)}
-        />
-        <button type="submit">Search</button>
+        <div className="row">
+          <div className="col-5">
+            <input
+              type="text"
+              placeholder="Enter city"
+              value={cityInput}
+              autoFocus="on"
+              onChange={(e) => setCityInput(e.target.value)}
+            />
+          </div>
+          <div className="col-3">
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary w-100"
+            />
+          </div>
+        </div>
       </form>
     </div>
   );

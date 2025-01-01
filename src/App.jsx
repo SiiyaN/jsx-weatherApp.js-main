@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
+import "./styles.css";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -33,8 +34,12 @@ export default function App() {
               <li>Wind: {wind} km/h</li>
               <li>
                 Description: {description}
-                <br />
-                {icon && <img src={icon} alt={description} />}
+                <div>
+                  <img
+                    src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+                    alt={description}
+                  />
+                </div>
               </li>
             </ul>
           </div>

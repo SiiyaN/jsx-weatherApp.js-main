@@ -1,25 +1,54 @@
 .App {
   font-family: sans-serif;
-  background: white;
+  background: rgb(255, 255, 255);
   max-width: 700px;
   margin: 35px auto;
-  box-shadow: 0 30px 50px rgb(202, 197, 197);
+  border: 1px solid #ddd;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   padding: 30px;
+  overflow: hidden;
 }
 
-.Search {
-  border: none;
+.Search input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 7px;
-  font-size: 15px;
-  padding: 10px 25px;
-  max-width: fit-content;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.Search input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 7px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Search input[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
 .weatherDetails {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 10px;
   margin: 15px;
+}
+
+.weatherDetails img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  background: #f9f9f9;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .temperatureValue {
@@ -37,4 +66,25 @@
 
 .Humidity {
   margin-top: 55px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .Search input[type="text"] {
+    font-size: 14px;
+  }
+
+  .Search input[type="submit"] {
+    font-size: 14px;
+  }
+
+  .weatherDetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 }
