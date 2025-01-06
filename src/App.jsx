@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
+import Temperature from "./Temperature";
+import FormattedDate from "./Date";
 import "./styles.css";
 
 export default function App() {
@@ -27,18 +29,30 @@ export default function App() {
         <Search updateWeather={updateWeatherData} />
         {temperature && (
           <div>
-            <h2>Weather Details</h2>
+            <h2>{city}</h2>
             <ul>
-              <li>Temperature: {temperature}°C</li>
+              <li>
+                <FormattedDate date={new Date()} />
+              </li>
+
               <li>Humidity: {humidity}%</li>
               <li>Wind: {wind} km/h</li>
               <li>
                 Description: {description}
-                <div>
-                  <img
-                    src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-                    alt={description}
-                  />
+                <div className="row mt-4">
+                  <div className="col-6">
+                    <div className="d-flex">
+                      <div>
+                        <Temperature celsius={temperature} />
+                      </div>
+                      <div>
+                        <img
+                          src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+                          alt={description}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </li>
             </ul>

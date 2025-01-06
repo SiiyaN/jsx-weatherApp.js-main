@@ -25,8 +25,9 @@ export default function Search({ updateWeather }) {
     <div className="Weather">
       <form onSubmit={searchWeather}>
         <div className="row">
-          <div className="col-5">
+          <div className="col-8">
             <input
+              className="searchInput w-100"
               type="text"
               placeholder="Enter city"
               value={cityInput}
@@ -34,12 +35,8 @@ export default function Search({ updateWeather }) {
               onChange={(e) => setCityInput(e.target.value)}
             />
           </div>
-          <div className="col-3">
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary w-100"
-            />
+          <div className="Button col-3">
+            <input type="submit" value="Search" className="btn  w-100" />
           </div>
         </div>
       </form>

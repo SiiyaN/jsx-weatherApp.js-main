@@ -3,10 +3,8 @@ import React from "react";
 export default function Temperature(props) {
   return (
     <div className="Temperature">
-      <h2>
-        <span className="temperatureValue">⛅ {props.value}</span>
-        <span className="Units">°C | °F</span>
-      </h2>
+      <span className="temperature">{Math.round(props.celsius)}</span>
+      <span className="unit">°C</span>
     </div>
   );
 }
