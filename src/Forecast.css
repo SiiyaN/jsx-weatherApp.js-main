@@ -1,0 +1,9 @@
+.Forecast {
+  display: flex;
+  justify-content: center;
+}
+
+.min-Temperature {
+  opacity: 0.5;
+  margin-left: 6px;
+}

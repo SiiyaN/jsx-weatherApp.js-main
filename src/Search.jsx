@@ -12,6 +12,8 @@ export default function Search({ updateWeather }) {
     let response = await axios.get(apiUrl);
 
     updateWeather({
+      ready: true,
+      coord: response.data.coordinates,
       city: cityInput,
       temperature: Math.round(response.data.main.temp - 273.15),
       description: response.data.weather[0].description,

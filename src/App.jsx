@@ -3,6 +3,7 @@ import Search from "./Search";
 import Footer from "./Footer";
 import Temperature from "./Temperature";
 import FormattedDate from "./Date";
+import Forecast from "./Forecast";
 import "./styles.css";
 
 export default function App() {
@@ -54,6 +55,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+                <Forecast />
               </li>
             </ul>
           </div>
