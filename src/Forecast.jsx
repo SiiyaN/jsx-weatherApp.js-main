@@ -1,31 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Icons from "./Icons";
 import axios from "axios";
 import "./Forecast.css";
 
-export default function Forecast() {
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(false);
+
   function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
     console.log(response.data);
   }
-  let apiKey = "f063aad8tb9d2a804775off7e6bf14bb";
-  let longitude = 30.5;
-  let latitude = 23;
 
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
-
-  axios.get(apiUrl).then(handleResponse);
-  return (
-    <div className="Forecast">
-      <div className="row">
-        <div className="col">
-          <div className="WeekDay"> Thu</div>
-          <Icons code="02d" size={45} />
-          <div className="TemperatureForecast">
-            <span className="max-Temperature">30°</span>
-            <span className="min-Temperature">19°</span>
+  if (loaded) {
+    return (
+      <div className="Forecast">
+        <div className="row">
+          <div className="col">
+            <div className="WeekDay"> {forecast[0].time}</div>
+            <Icons code={forecast[0].condition.icon} size={45} />
+            <div className="TemperatureForecast">
+              <span className="max-Temperature">
+                {forecast[0].temperature.maximum}°
+              </span>
+              <span className="min-Temperature">
+                {forecast[0].temperature.minimum}°
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "bfbecfa9d5310bdc7455ecb840813f1f";
+    let longitude = 23;
+    let latitude = 30.6;
+
+    let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+    return null;
+  }
 }

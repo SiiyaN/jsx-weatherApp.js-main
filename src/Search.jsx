@@ -13,7 +13,7 @@ export default function Search({ updateWeather }) {
 
     updateWeather({
       ready: true,
-      coord: response.data.coordinates,
+      coordinates: response.data.coordinates,
       city: cityInput,
       temperature: Math.round(response.data.main.temp - 273.15),
       description: response.data.weather[0].description,
@@ -42,6 +42,9 @@ export default function Search({ updateWeather }) {
           </div>
         </div>
       </form>
+
+      <Weather data={updateWeather} />
+      <Forecast coordinates={updateWeather.coordinates} />
     </div>
   );
 }
