@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Forecast from "./Forecast";
 
 export default function Search({ updateWeather }) {
   let [cityInput, setCityInput] = useState("");
@@ -43,7 +44,6 @@ export default function Search({ updateWeather }) {
         </div>
       </form>
 
-      <Weather data={updateWeather} />
       <Forecast coordinates={updateWeather.coordinates} />
     </div>
   );

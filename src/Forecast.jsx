@@ -33,7 +33,7 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    let apiKey = "bfbecfa9d5310bdc7455ecb840813f1f";
+    let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
     let longitude = 23;
     let latitude = 30.6;
 
