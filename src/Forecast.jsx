@@ -13,19 +13,25 @@ export default function Forecast(props) {
     console.log(response.data);
   }
 
+  function day() {
+    const date = new Date(forecast[0].time * 1000);
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[date.getDay()];
+  }
+
   if (loaded) {
     return (
       <div className="Forecast">
         <div className="row">
           <div className="col">
-            <div className="WeekDay"> {forecast[0].time}</div>
+            <div className="WeekDay"> {day()}</div>
             <Icons code={forecast[0].condition.icon} size={45} />
             <div className="TemperatureForecast">
               <span className="max-Temperature">
-                {forecast[0].temperature.maximum}°
+                {Math.round(forecast[0].temperature.maximum)}°
               </span>
               <span className="min-Temperature">
-                {forecast[0].temperature.minimum}°
+                {Math.round(forecast[0].temperature.minimum)}°
               </span>
             </div>
           </div>
@@ -33,11 +39,11 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
-    let longitude = 23;
-    let latitude = 30.6;
+    let apiKey = "f063aad8tb9d2a804775off7e6bf14bb";
+    let longitude = props.coordinates.longitude;
+    let latitude = props.coordinates.latitude;
 
-    let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
     return null;

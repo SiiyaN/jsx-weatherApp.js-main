@@ -13,6 +13,7 @@ export default function App() {
   const [humidity, setHumidity] = useState(null);
   const [wind, setWind] = useState(null);
   const [icon, setIcon] = useState("");
+  const [coordinates, setCoordinates] = useState(null);
 
   const updateWeatherData = (data) => {
     setCity(data.city);
@@ -21,6 +22,7 @@ export default function App() {
     setHumidity(data.humidity);
     setWind(data.wind);
     setIcon(data.icon);
+    setCoordinates(data.coordinates);
   };
 
   return (
@@ -47,15 +49,12 @@ export default function App() {
                         <Temperature celsius={temperature} />
                       </div>
                       <div>
-                        <img
-                          src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-                          alt={description}
-                        />
+                        <img src={icon} alt={description} />
                       </div>
                     </div>
                   </div>
                 </div>
-                <Forecast />
+                <Forecast coordinates={coordinates} />
               </li>
             </ul>
           </div>

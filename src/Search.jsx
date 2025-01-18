@@ -7,8 +7,8 @@ export default function Search({ updateWeather }) {
 
   let searchWeather = async (event) => {
     event.preventDefault();
-    let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}`;
+    let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}`;
 
     let response = await axios.get(apiUrl);
 
@@ -16,11 +16,11 @@ export default function Search({ updateWeather }) {
       ready: true,
       coordinates: response.data.coordinates,
       city: cityInput,
-      temperature: Math.round(response.data.main.temp - 273.15),
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
+      temperature: Math.round(response.data.temperature.current),
+      description: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      icon: response.data.weather[0].icon,
+      icon: response.data.condition.icon_url,
     });
   };
 
@@ -43,8 +43,6 @@ export default function Search({ updateWeather }) {
           </div>
         </div>
       </form>
-
-      <Forecast coordinates={updateWeather.coordinates} />
     </div>
   );
 }
