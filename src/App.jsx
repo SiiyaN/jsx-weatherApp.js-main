@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Temperature from "./Temperature";
 import FormattedDate from "./Date";
 import Forecast from "./Forecast";
+import Icons from "./Icons";
 import "./styles.css";
 
 export default function App() {
@@ -26,38 +27,41 @@ export default function App() {
   };
 
   return (
-    <div className="App">
+    <div className="weather">
       <div className="container">
-        <h1></h1>
         <Search updateWeather={updateWeatherData} />
         {temperature && (
           <div>
-            <h2>{city}</h2>
+            <h1>{city}</h1>
             <ul>
               <li>
                 <FormattedDate date={new Date()} />
               </li>
+              <li>{description}</li>
+            </ul>
 
-              <li>Humidity: {humidity}%</li>
-              <li>Wind: {wind} km/h</li>
-              <li>
-                Description: {description}
-                <div className="row mt-4">
-                  <div className="col-6">
-                    <div className="d-flex">
-                      <div>
-                        <Temperature celsius={temperature} />
-                      </div>
-                      <div>
-                        <img src={icon} alt={description} />
-                      </div>
-                    </div>
+            <div className="row mt-3">
+              <div className="col-6">
+                <div className="clearfix">
+                  <div className="float-left">
+                    <Icons code={icon} size={50} />
+                  </div>
+
+                  <div className="float-left">
+                    <Temperature celsius={temperature} />
                   </div>
                 </div>
-                <Forecast coordinates={coordinates} />
-              </li>
-            </ul>
-          </div>
+              </div>
+              <div className="col-6">
+                <ul>
+                  <li>Humidity: {humidity}%</li>
+                  <li>Wind: {wind} km/h</li>
+                </ul>
+              </div>
+            </div>
+
+            {coordinates && <Forecast coordinates={coordinates} />}
+          </div> //only rendered when coordinates are available.
         )}
         <Footer />
       </div>
