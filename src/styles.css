@@ -1,4 +1,5 @@
 .weather {
+  align-items: center;
   font-family: cursive;
   background: linear-gradient(to bottom, #87ceeb, #ffffff);
   height: 100;
