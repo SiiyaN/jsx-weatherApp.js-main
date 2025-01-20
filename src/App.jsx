@@ -27,44 +27,47 @@ export default function App() {
   };
 
   return (
-    <div className="weather">
-      <div className="container">
-        <Search updateWeather={updateWeatherData} />
-        {temperature && (
-          <div>
-            <h1>{city}</h1>
-            <ul>
-              <li>
-                <FormattedDate date={new Date()} />
-              </li>
-              <li>{description}</li>
-            </ul>
+    <div>
+      <div className="weather">
+        <div className="container">
+          <Search updateWeather={updateWeatherData} />
+          {temperature && (
+            <div>
+              <hr />
+              <h1 className="m-3">{city}</h1>
+              <ul>
+                <li>
+                  <FormattedDate date={new Date()} />
+                </li>
+                <li>{description}</li>
+              </ul>
 
-            <div className="row mt-3">
-              <div className="col-6">
-                <div className="clearfix">
-                  <div className="float-left">
-                    <Icons code={icon} size={50} />
-                  </div>
+              <div className="row mt-3">
+                <div className="col-6">
+                  <div className="clearfix">
+                    <div className="float-left ">
+                      <img src={icon} alt={description} />
+                    </div>
 
-                  <div className="float-left">
-                    <Temperature celsius={temperature} />
+                    <div className="float-left">
+                      <Temperature celsius={temperature} />
+                    </div>
                   </div>
                 </div>
+                <div className="col-6">
+                  <ul>
+                    <li>Humidity: {humidity}%</li>
+                    <li>Wind: {wind} km/h</li>
+                  </ul>
+                </div>
               </div>
-              <div className="col-6">
-                <ul>
-                  <li>Humidity: {humidity}%</li>
-                  <li>Wind: {wind} km/h</li>
-                </ul>
-              </div>
-            </div>
-
-            {coordinates && <Forecast coordinates={coordinates} />}
-          </div> //only rendered when coordinates are available.
-        )}
-        <Footer />
+              <hr />
+              {coordinates && <Forecast coordinates={coordinates} />}
+            </div> //only render when coordinates are available
+          )}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

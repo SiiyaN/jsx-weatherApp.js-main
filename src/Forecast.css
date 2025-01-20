@@ -1,6 +1,7 @@
 .Forecast {
-  display: flex;
+  display: flexbox;
   justify-content: center;
+  margin: 10px;
 }
 
 .min-Temperature {

@@ -1,13 +1,14 @@
 .weather {
-  font-family: sans-serif;
-  background: rgb(193, 221, 248);
+  font-family: cursive;
+  background: linear-gradient(to bottom, #87ceeb, #ffffff);
+  height: 100;
   max-width: 700px;
   margin: 35px auto;
-  border: 1px solid #ddd;
+  margin-bottom: 15pw;
+  border: 1px solid #4e91e9;
   box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-  padding: 30px;
-  overflow: hidden;
+  padding: 30px 15px;
 }
 
 .city {
@@ -15,25 +16,26 @@
 }
 
 .searchInput {
-  background-color: rgba(242, 236, 248, 0.852);
-  border: none;
+  background-color: rgba(223, 239, 247, 0.852);
+  border: 3px solid rgb(66, 139, 173);
   border-radius: 7px;
-  width: 80%;
-  font-size: 15px;
+  width: 80;
+  font-size: 19px;
   padding: 10px 25px;
 }
 
 .Button {
-  padding: 2px;
-  border: none;
-  background: rgb(33, 95, 209);
+  padding: 1px;
+  border: 3px solid;
+  background: transparent;
   color: white;
   font-size: 10px;
   border-radius: 5px;
 }
 
 .Button:hover {
-  background-color: #6085ad;
+  background-color: rgb(66, 139, 173);
+  transition: 0.2s ease-in-out;
 }
 
 .weatherDetails {
@@ -71,4 +73,15 @@
     align-items: center;
     gap: 15px;
   }
+}
+
+.Footer {
+  text-align: center;
+  font-size: 12px;
+  font-family: cursive;
+  font-style: italic;
+}
+
+li {
+  list-style: none;
 }
