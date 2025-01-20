@@ -1,5 +1,5 @@
 .weather {
-  text-align: center;
+  display: flex;
   font-family: cursive;
   background: linear-gradient(to bottom, #87ceeb, #ffffff);
   height: 100;
