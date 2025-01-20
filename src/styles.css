@@ -1,8 +1,8 @@
 .weather {
-  display: flex;
+  display: block;
   font-family: cursive;
   background: linear-gradient(to bottom, #87ceeb, #ffffff);
-  height: 100;
+  height: auto;
   max-width: 700px;
   margin: 35px auto;
   margin-bottom: 15pw;
